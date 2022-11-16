@@ -154,37 +154,6 @@
 - Nginx Applications
 - User Management Web Application built using Spring Boot using MySQL as underlying storage
 
-## What will students learn in your course?
-- You will learn to build Azure AKS Production grade clusters using Azure AKS CLI
-- You will learn terraform from basics and create terraform manifests for provisioning Azure AKS Production grade clusters
-- You will learn to provision Azure AKS Clusters using Terraform and Azure DevOps. 
-- You will learn 30+ kubernetes concepts and use 21 Azure Services in combination with Azure AKS
-- You will implement DevOps concepts with Azure DevOps Continuous Integration Pipelines and Continuous Deliver Pipelines also called Release Pipelines
-- You will write Azure DevOps CI Pipelines from scratch using Starter Pipelines
-- You will write kubernetes manifests with confidence after going through live template writing sections
-- You will learn Kubernetes Fundamentals in both imperative and declarative approaches
-- You will learn writing & deploying k8s manifests for storage concepts like storage class, persistent volume claim pvc, mysql 
-- You will learn to switch from native Azure Disks to Azure MySQL Database using k8s external name service
-- You will learn writing and deploying load balancer k8s manifests for Azure Standard Load Balancer
-- You will learn writing ingress k8s manifests by enabling features like context path based routing, domain name based routing,  SSL with LetsEncrypt and External DNS. 
-- You will learn writing k8s manifests for Azure Virtual Nodes (serverless)  and do mixed mode workload deployments in both Azure Linux NodePools and Virtual Nodes. 
-- You will learn using ACR - Azure Container Registry in combination with AKS in 3 ways (ACR Attach, using Service Principal, on Virtual Nodes). 
-- You will learn to enable Autoscaling features like HPA & Cluster Autoscaler
-- You will learn Docker fundamentals by implementing usecases like download image from Docker Hub and run on local desktop and build an image locally, test and push to Docker Hub.
-- You will master many kubectl commands over the process
-- You will learn to integrate Azure AKS with Azure Active Directory for AKS Admins to be created managed in Azure Active Directory
-- You will learn Kubernetes RBAC concepts like role, role-binding, cluster role, cluster role binding in combination with Azure AD for Azure AKS granular level access
-
-## Are there any course requirements or prerequisites?
-- You must have an Azure Cloud account to follow with me for hands-on activities.
-- You dont need to have any basic Docker or kubernetes knowledge to start this course.  
-
-
-## Who are your target students?
-- Azure Architects or Sysadmins or Developers who are planning to master Azure Kubernetes Service (AKS) for running applications on Kubernetes
-- Any beginner who is interested in learning kubernetes on cloud using Azure AKS. 
-- Any beginner who is interested in learning Azure DevOps, Terraform to provision Azure Kubernetes Clusters
-
 ## Github Repositories used for this course
 - [Azure Kubernetes Service with Azure DevOps and Terraform](https://github.com/stacksimplify/azure-aks-kubernetes-masterclass)
 - [Azure DevOps for Kubernetes Workloads running on Azure AKS Cluster](https://github.com/stacksimplify/azure-devops-github-acr-aks-app1)
@@ -193,21 +162,7 @@
 - [Presentation with 250 Slides outlining the various architectures and designs we are going to do in this course](https://github.com/stacksimplify/azure-aks-kubernetes-masterclass/tree/master/ppt-presentation)
 - **Important Note:** Please go to these repositories and FORK these repositories and make use of them during the course.
 
-
-## Each of my courses come with
-- Amazing Hands-on Step By Step Learning Experiences
-- Real Implementation Experience
-- Friendly Support in the Q&A section
-- 30 Day "No Questions Asked" Money Back Guarantee!
-
-## My Other AWS Courses
-- [Udemy Enroll](https://github.com/stacksimplify/udemy-enroll)
-
 ## Stack Simplify Udemy Profile
 - [Udemy Profile](https://www.udemy.com/user/kalyan-reddy-9/)
-
-# AWS EKS - Elastic Kubernetes Service - Masterclass
-
-[![Image](https://stacksimplify.com/course-images/AWS-EKS-Kubernetes-Masterclass-DevOps-Microservices-course.png "AWS EKS Kubernetes - Masterclass")](https://www.udemy.com/course/aws-eks-kubernetes-masterclass-devops-microservices/?referralCode=257C9AD5B5AF8D12D1E1)
 
 
