@@ -34,7 +34,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        SourceFolder: '$(System.DefaultWorkingDirectory)/azure-aks-usermgmt-webapp-demo/'
         Contents: '**/target/*.?(war|jar)'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
@@ -54,4 +54,4 @@ stages:
         containerRegistry: 'dockerhub-azure-aks-usermgmt-webapp-demo'
         repository: 'azure-aks-usermgmt-webapp-demo'
         command: 'buildAndPush'
-        Dockerfile: 'azure-aks-usermgmt-webapp-demo/**/Dockerfile'
+        Dockerfile: '**/Dockerfile'
