@@ -15,6 +15,7 @@ trigger:
 variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
+  tag: '$(Build.BuildId)'
   
 pool:
   vmImage: $(vmImageName)
@@ -61,3 +62,6 @@ stages:
         repository: 'jkolonkova/azure-aks-usermgmt-webapp-demo'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        tags: |
+          $(tag)
+          latest
