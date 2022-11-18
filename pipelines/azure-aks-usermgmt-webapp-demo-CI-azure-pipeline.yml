@@ -1,0 +1,57 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: 'azure-vs-subscription'
+  
+  # Web app name
+  webAppName: 'azure-pipelines-java-gs-spring-boot'
+  
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: MavenPackageAndPublishArtifacts
+    displayName: Maven Package and Publish Artifacts
+    steps:
+    # - task: Maven@3
+    #   inputs:
+    #     mavenPomFile: 'src/app/pom.xml'
+    #     publishJUnitResults: true
+    #     # codeCoverageToolOption: Cobertura
+    - task: Maven@4
+      inputs:
+        mavenPomFile: 'azure-aks-usermgmt-webapp-demo/pom.xml'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files to artifact staging directory'
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/target/*.?(war|jar)'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish pipeline artifacts'
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        publishLocation: 'pipeline'
+
