@@ -10,12 +10,6 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
-  # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'azure-vs-subscription'
-  
-  # Web app name
-  webAppName: 'azure-pipelines-java-gs-spring-boot'
-  
 pool:
   vmImage: $(vmImageName)
 
@@ -26,11 +20,6 @@ stages:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     steps:
-    # - task: Maven@3
-    #   inputs:
-    #     mavenPomFile: 'src/app/pom.xml'
-    #     publishJUnitResults: true
-    #     # codeCoverageToolOption: Cobertura
     - task: Maven@4
       inputs:
         mavenPomFile: 'azure-aks-usermgmt-webapp-demo/pom.xml'
