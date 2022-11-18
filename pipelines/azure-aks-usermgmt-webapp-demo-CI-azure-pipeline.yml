@@ -42,5 +42,16 @@ stages:
       displayName: 'Publish pipeline artifacts'
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)'
-        publishLocation: 'pipeline'
 
+- stage: Publish
+  displayName: Publish stage
+  jobs:
+  - job: PublishDockerImage
+    displayName: Publish Docker image
+    steps:
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'dockerhub-azure-aks-usermgmt-webapp-demo'
+        repository: 'azure-aks-usermgmt-webapp-demo'
+        command: 'buildAndPush'
+        Dockerfile: 'azure-aks-usermgmt-webapp-demo/**/Dockerfile'
