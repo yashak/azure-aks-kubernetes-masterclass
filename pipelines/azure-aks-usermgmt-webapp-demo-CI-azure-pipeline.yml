@@ -7,6 +7,7 @@ trigger:
   branches: 
     include:
       - master
+      - pipeline-test
   paths:
     include:
       - azure-aks-usermgmt-webapp-demo/*
@@ -38,24 +39,40 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
 
+
+
+    - bash: echo Contents in System Default Working Directory; ls -R $(System.DefaultWorkingDirectory)        
+    - bash: echo Before copying Contents in Build Artifact Directory; ls -R $(Build.ArtifactStagingDirectory)        
+    # Task-2: Copy files (Copy files from a source folder to target folder)
+    # Source Directory: $(System.DefaultWorkingDirectory)/kube-manifests
+    # Target Directory: $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)/azure-aks-usermgmt-webapp-demo/'
         Contents: '**/target/*.?(war|jar)'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        OverWrite: true
+    # - task: CopyFiles@2
+    #   inputs:
+    #     SourceFolder: '$(System.DefaultWorkingDirectory)/kube-manifests'
+    #     Contents: '**'
+    #     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    #     OverWrite: true
+    # List files from Build Artifact Staging Directory - After Copy
+    - bash: echo After copying to Build Artifact Directory; ls -R $(Build.ArtifactStagingDirectory)  
 
     - task: PublishPipelineArtifact@1
       displayName: 'Publish pipeline artifacts'
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)'
 
-- stage: Publish
-  displayName: Publish stage
-  jobs:
-  - job: PublishDockerImage
-    displayName: Publish Docker image
-    steps:
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'azure-aks-usermgmt-webapp-demo'
+        publishLocation: 'Container'
+
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerhub-azure-aks-usermgmt-webapp-demo'
