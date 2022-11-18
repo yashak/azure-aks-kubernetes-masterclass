@@ -57,6 +57,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerhub-azure-aks-usermgmt-webapp-demo'
-        repository: 'azure-aks-usermgmt-webapp-demo'
+        repository: 'jkolonkova/azure-aks-usermgmt-webapp-demo'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
