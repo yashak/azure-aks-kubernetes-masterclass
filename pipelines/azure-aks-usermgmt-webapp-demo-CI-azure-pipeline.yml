@@ -61,7 +61,7 @@ stages:
         containerRegistry: 'dockerhub-azure-aks-usermgmt-webapp-demo'
         repository: 'jkolonkova/azure-aks-usermgmt-webapp-demo'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: 'azure-aks-usermgmt-webapp-demo/**/Dockerfile'
         tags: |
           $(tag)
           latest
