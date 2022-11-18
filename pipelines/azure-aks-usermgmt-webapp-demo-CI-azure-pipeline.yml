@@ -4,7 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- master
+  branches: 
+    include:
+      - master
+  paths:
+    include:
+      - azure-aks-usermgmt-webapp-demo/*
 
 variables:
   # Agent VM image name
