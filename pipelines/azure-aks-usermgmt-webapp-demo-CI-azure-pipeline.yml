@@ -10,6 +10,7 @@ trigger:
   paths:
     include:
       - azure-aks-usermgmt-webapp-demo/*
+      - pipelines/*
 
 variables:
   # Agent VM image name
