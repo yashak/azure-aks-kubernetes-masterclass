@@ -9,9 +9,8 @@ trigger:
       - master
   paths:
     include:
-      - '*'
-    exclude:
-      - terraform/*
+      - 'azure-aks-usermgmt-webapp-demo/*'
+      - 'pipelines/*'
 
 variables:
   # Agent VM image name
